@@ -8,7 +8,9 @@
 
 
 
+
 - 环境变量在`ss.config.js`中配置
+- 请先 `npm install` 安装依赖 再阅读调试
 
 
 
