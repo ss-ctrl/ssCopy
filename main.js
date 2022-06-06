@@ -7,7 +7,10 @@ const readline = require('readline').createInterface({
 })
 const { fastCopy_sync_vscodeSettingsToOneDrive,
   fastCopy_sync_config_note_ToMoveDisk,
-  fastCopy_sync_config_note_ToChooseDisk } = require('./js/fastCopy.js')
+  fastCopy_sync_config_note_ToChooseDisk,
+  fastCopy_sync_config_note_ToGoogleDisk,
+  fastCopy_sync_config_note_ToSyncThing,
+  } = require('./js/fastCopy.js')
 
 // TODO 等着研究环境变量
 const {SS, Document} = require('./ss.config')
@@ -46,6 +49,8 @@ diskInfo_package.getDrives(function (err, aDrives) {
 
   console.log('1: vscodeSettings -> OneDrive')
   console.log('2: Note/Config -> USB')
+  console.log('4: Note/Config -> SyncThing')
+  console.log('5: Note/Config -> Google Drive')
   console.log('9: Note/Config -> chooseDisk')
   console.log('0: 退出')
   enterChoose() // 进入选择
@@ -70,6 +75,14 @@ diskInfo_package.getDrives(function (err, aDrives) {
         case '2':
           console.log('2: Note/Config -> USB')
           fastCopy_sync_config_note_ToMoveDisk(RemovableDisk)
+          break
+        case '4':
+          console.log('4: Note/Config -> SyncThing')
+          fastCopy_sync_config_note_ToSyncThing()
+          break
+        case '5':
+          console.log('5: Note/Config -> Google Drive')
+          fastCopy_sync_config_note_ToGoogleDisk()
           break
         case '9':
           console.log('9: Note/Config -> chooseDisk')
